@@ -231,8 +231,8 @@ if($_POST){
 else{
 	
 	$urlc = $_REQUEST['url'];
-	if($urlc == '') $urlc = 'http://batblz.com';
-	
+	if($urlc == '') echo 'Plugin cannot get the url of your post. make sure if your theme have the post loop structure configured correctly';
+	else{
 	?>
 	<div id="fb-root"></div>
 	<script>(function(d, s, id) {
@@ -245,7 +245,7 @@ else{
 	<div class="fb-comments" data-href="<?=$urlc?>" data-width="580" data-num-posts="20"></div>
 	
 <?php
-
+	}
 } 
 
 ?>
