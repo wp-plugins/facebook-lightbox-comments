@@ -1,0 +1,41 @@
+=== Plugin Name ===
+Contributors: dkluiz
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BTGFR8Z8X3K4Q
+Tags: comments, facebook, lightbox, facebook comments, fb comments, comments lightbox
+Requires at least: 2.5.1
+Tested up to: 3.4
+Stable tag: 4.3
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+
+Show the facebook comments in a lightbox without leaving the actual page.
+
+== Description ==
+
+This plugin shows the facebook's comments for your posts in a jquery lightbox. This way your readers does not need to leave the page to comment or see the comments in your posts.
+
+This plugin also insert (or not) the facebook's comments in your single post page and remove (or not) the wp native comments.
+
+
+== Installation ==
+
+
+1. Upload `flcomments.php` to the `/wp-content/plugins/` directory
+1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Open the config page and set your preferences
+
+== Frequently Asked Questions ==
+
+= My plugin does not work, why? =
+
+Probably the comment link class is not configured, open your theme and see if the class of your comments links in home page is the same of the plugin options..
+
+== Screenshots ==
+
+1. Comments lightbox screen.
+2. Options page
+
+== Changelog ==
+
+= 1.0 =
+* Frist version of all.
