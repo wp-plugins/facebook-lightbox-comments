@@ -40,8 +40,14 @@ Probably the comment link class is not configured, open your theme and see if th
 = 1.0 =
 First version =)
 
+= 1.0.1 =
+Correcting path erros in lightbox iframe
+
 
 == Changelog ==
 
 = 1.0 =
 * Frist version of all.
+
+= 1.0.1 =
+* Error in iframe comments fixed

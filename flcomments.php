@@ -140,7 +140,6 @@ if($_POST){
 				return false;
 			});
 			
-			
 			/// sair do ligthbox
 			$("#sombrafbc, #closelfb").live("click", function(){
 				$("#sombrafbc, #palcom").slideUp();
