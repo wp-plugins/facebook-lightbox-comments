@@ -135,7 +135,7 @@ if($_POST){
 				else if($(this).parent().parent().parent().parent().find('.posturl').length) var urltoi = $(this).parent().parent().parent().parent().find('.posturl').val();
 				else if($(this).parent().parent().parent().parent().parent().find('.posturl').length) var urltoi = $(this).parent().parent().parent().parent().parent().find('.posturl').val();
 				
-				var urliframe = '<iframe src="<?=get_bloginfo('wpurl');?>/wp-content/plugins/flcomments/flcomments.php?frame=sim&flcappid=<?php echo get_option('flcappid');?>&url='+urltoi+'" width="600" height="600" frameborder="0" scrolling="auto" ></iframe>';
+				var urliframe = '<iframe src="<?=get_bloginfo('wpurl');?>/wp-content/plugins/facebook-lightbox-comments/flcomments.php?frame=sim&flcappid=<?php echo get_option('flcappid');?>&url='+urltoi+'" width="600" height="600" frameborder="0" scrolling="auto" ></iframe>';
 				$("#alvoiframe").html(urliframe);
 				return false;
 			});
