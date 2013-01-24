@@ -35,6 +35,12 @@ Probably the comment link class is not configured, open your theme and see if th
 1. Comments lightbox screen.
 2. Options page
 
+== Upgrade Notice ==
+
+= 1.0 =
+First version =)
+
+
 == Changelog ==
 
 = 1.0 =
