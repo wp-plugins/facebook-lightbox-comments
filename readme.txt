@@ -32,7 +32,7 @@ Probably the comment link class is not configured, open your theme and see if th
 
 == Screenshots ==
 
-1. Comments lightbox screen.
+1. Comments lightbox screen
 2. Options page
 
 == Upgrade Notice ==
