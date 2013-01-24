@@ -3,7 +3,7 @@
 Plugin Name: Facebook Lightbox Comments
 Plugin URI: http://URI_Of_Page_Describing_Plugin_and_Updates
 Description: Show the facebook comments in a lightbox without leaving the actual page.
-Version: 1.0
+Version: 1.0.1
 Author: Dk Ribeiro
 Author URI: http://viagiz.com
 License: GPL2
