@@ -174,11 +174,14 @@ if($_POST){
 				
 				
 	<?php } elseif(is_single()) {
+		
 		if(get_option('flcform')=='1' and get_option('flcremove')=='1') {?>
-			$('#<?php echo get_option('flcformid');?>').html('<div class="fb-comments" data-href="batblz.com" data-width="580" style="width: 100%; margin:auto; text-align:center; padding:10px;" data-num-posts="20"></div>');
+			urldopost = $(".posturl").val();
+			$('#<?php echo get_option('flcformid');?>').html('<div class="fb-comments" data-href="'+urldopost+'" data-width="580" style="width: 100%; margin:auto; text-align:center; padding:10px;" data-num-posts="20"></div>');
 			<?php }
 			elseif(get_option('flcform')=='1'){ ?>
-		$('#<?php echo get_option('flcformid');?>').prepend('<div class="fb-comments" data-href="batblz.com" data-width="580" style="width: 100%; margin:auto; text-align:center; padding:10px;" data-num-posts="20"></div>');
+			urldopost = $(".posturl").val();
+			$('#<?php echo get_option('flcformid');?>').prepend('<div class="fb-comments" data-href="'+urldopost+'" data-width="580" style="width: 100%; margin:auto; text-align:center; padding:10px;" data-num-posts="20"></div>');
 	<?php
 			}
 		} ?>		
