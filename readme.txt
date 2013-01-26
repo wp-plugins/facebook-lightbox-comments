@@ -43,6 +43,9 @@ First version =)
 = 1.0.1 =
 Correcting path erros in lightbox iframe
 
+= 1.0.2 =
+Post url parameter in single post comments fixed
+
 
 == Changelog ==
 
@@ -51,3 +54,6 @@ Correcting path erros in lightbox iframe
 
 = 1.0.1 =
 * Error in iframe comments fixed
+
+= 1.0.2 =
+Post url parameter in single post comments fixed
