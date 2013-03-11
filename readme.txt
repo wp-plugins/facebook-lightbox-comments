@@ -1,14 +1,12 @@
 === Plugin Name ===
 Contributors: dkluiz
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=BTGFR8Z8X3K4Q
-Tags: comments, facebook, lightbox, facebook comments, fb comments, comments lightbox
+Tags: comments, facebook, lightbox, facebook comments, fb comments, comments lightbox, comments facebook
 Requires at least: 2.5.1
-Tested up to: 3.4
-Stable tag: 4.3
+Tested up to: 3.5
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-Show the facebook comments in a lightbox without leaving the actual page.
 
 == Description ==
 
@@ -46,6 +44,11 @@ Correcting path erros in lightbox iframe
 = 1.0.2 =
 Post url parameter in single post comments fixed
 
+= 1.1 =
+Add styles options
+Add width option for comments
+Add language suport
+
 
 == Changelog ==
 
@@ -57,3 +60,8 @@ Post url parameter in single post comments fixed
 
 = 1.0.2 =
 Post url parameter in single post comments fixed
+
+= 1.1 =
+Add styles options
+Add width option for comments
+Add language suport

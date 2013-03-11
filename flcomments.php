@@ -13,7 +13,7 @@ if(!isset($_REQUEST['frame']) ||$_REQUEST['frame']!='sim'){
 	
 	
 	 function ativar(){
-		add_option('flcclass', 'comments-link');
+		add_option('flcclass', 'comments-link a');
 		add_option('flcappid', '');
 		add_option('flcadmins', '');
 		add_option('flcform', '');
@@ -22,6 +22,9 @@ if(!isset($_REQUEST['frame']) ||$_REQUEST['frame']!='sim'){
 		add_option('flczero', 'Respond');
 		add_option('flcum', 'comment');
 		add_option('flcmais', 'comments');
+		add_option('flclang', 'en_US');
+		add_option('flcwidth', '580');
+		add_option('flcstyle', 'light');
 	 }
 	 
 	  function criarMenu(){
@@ -35,9 +38,12 @@ if($_POST){
  update_option('flcclass', $_POST['flcclass']);
  update_option('flcappid', $_POST['flcappid']);
  update_option('flcadmins', $_POST['flcadmins']);
+ update_option('flclang', $_POST['flclang']);
+ update_option('flcstyle', $_POST['flcstyle']);
  update_option('flcform', $_POST['flcform']);
  update_option('flcremove', $_POST['flcremove']);
  update_option('flcformid', $_POST['flcformid']);
+ update_option('flcwidth', $_POST['flcwidth']);
  update_option('flczero', $_POST['flczero']);
  update_option('flcum', $_POST['flcum']);
  update_option('flcmais', $_POST['flcmais']);
@@ -50,7 +56,7 @@ if($_POST){
 <h2>Facebook Lightbox Comments Options</h2>
 <?php echo $msg; ?>
 <form action="" method="post">
-<p><b>Comments links Class: </b> <input name="flcclass" type="text" value="<?php echo get_option('flcclass');?>" size="20"/> <small>(default is comments-link)</small></p>
+<p><b>Comments links Class: </b> <input name="flcclass" type="text" value="<?php echo get_option('flcclass');?>" size="20"/> <small>(default is comments-link a)</small></p>
 
 <p><b>Facebook App Id: </b> <input name="flcappid" type="text" value="<?php echo get_option('flcappid');?>" size="40"/>
 <?php if(get_option('flcappid')!=''){?><a href="https://developers.facebook.com/tools/comments?id=<?php echo get_option('flcappid');?>"> Comments moderation </a><?php } else echo '<a target="_blank" href="https://developers.facebook.com/apps"> Get your App ID Here</a>'; ?>
@@ -58,11 +64,24 @@ if($_POST){
 
 <p><b>Facebook Comments admins IDs: </b> <input name="flcadmins" type="text" value="<?php echo get_option('flcadmins');?>" size="40"/> <small>(separate the uids by comma without spaces)</small></p>
 
+<p><b>Language: </b> <input name="flclang" type="text" value="<?php echo get_option('flclang');?>" size="10"/> <small>(default is en_US)</small></p>
+
+<p><b>Comments style: </b> <select name="flcstyle">
+  <option value="light">light</option>
+  <option value="dark" <?php if(get_option('flcstyle')=='dark'){ echo 'selected="selected"' ;}?> >dark</option>
+</select> 
+<small>(default is ligth)</small></p>
+
 <p><b>Wp Comments  DIV Id in post page: </b> <input name="flcformid" type="text" value="<?php echo get_option('flcformid');?>" size="20"/> <small>(default is comments)</small></p>
 
 <p><label><b>Add Facebok comments in post page: </b> <input name="flcform" type="checkbox" value="1" <?php if(get_option('flcform')=='1') echo 'checked="checked"';?>  /> </label></p>
 
 <p><label><b>Remove wordpress comments in post page: </b> <input name="flcremove" type="checkbox" value="1" <?php if(get_option('flcremove')=='1') echo 'checked="checked"';?>  /> </label></p>
+
+<p><label><b>Comment's width: </b> 
+    <input name="flcwidth" type="text" value="<?php echo get_option('flcwidth');?>" size="10"/></label><small>(default is 580)</small></p>
+
+<br />
 
 <p><b>No comments label: </b> <input name="flczero" type="text" value="<?php echo get_option('flczero');?>" size="20"/></p>
 
@@ -75,7 +94,7 @@ if($_POST){
 </form>
 
 
-<form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="float:right">
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="float:right" target="_blank">
 <input type="hidden" name="cmd" value="_s-xclick">
 <input type="hidden" name="hosted_button_id" value="BTGFR8Z8X3K4Q">
 <input type="image" src="https://www.paypalobjects.com/pt_BR/BR/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - A maneira mais fácil e segura de efetuar pagamentos online!">
@@ -135,7 +154,7 @@ if($_POST){
 				else if($(this).parent().parent().parent().parent().find('.posturl').length) var urltoi = $(this).parent().parent().parent().parent().find('.posturl').val();
 				else if($(this).parent().parent().parent().parent().parent().find('.posturl').length) var urltoi = $(this).parent().parent().parent().parent().parent().find('.posturl').val();
 				
-				var urliframe = '<iframe src="<?php echo plugins_url( 'flcomments.php' , __FILE__ ); ?>?frame=sim&flcappid=<?php echo get_option('flcappid');?>&url='+urltoi+'" width="600" height="600" frameborder="0" scrolling="auto" ></iframe>';
+				var urliframe = '<iframe src="<?php echo plugins_url( 'flcomments.php' , __FILE__ ); ?>?frame=sim&flclang=<?php echo get_option('flclang');?>&flcstyle=<?php echo get_option('flcstyle');?>&flcappid=<?php echo get_option('flcappid');?>&url='+urltoi+'" width="600" height="600" frameborder="0" scrolling="auto" ></iframe>';
 				$("#alvoiframe").html(urliframe);
 				return false;
 			});
@@ -177,11 +196,11 @@ if($_POST){
 		
 		if(get_option('flcform')=='1' and get_option('flcremove')=='1') {?>
 			urldopost = $(".posturl").val();
-			$('#<?php echo get_option('flcformid');?>').html('<div class="fb-comments" data-href="'+urldopost+'" data-width="580" style="width: 100%; margin:auto; text-align:center; padding:10px;" data-num-posts="20"></div>');
+			$('#<?php echo get_option('flcformid');?>').html('<div class="fb-comments" data-href="'+urldopost+'" data-width="<?php echo get_option('flcwidth');?>" style="width: 100%; margin:auto; text-align:center; padding:10px;" data-num-posts="20" data-colorscheme="<?php echo get_option('flcstyle');?>"></div>');
 			<?php }
 			elseif(get_option('flcform')=='1'){ ?>
 			urldopost = $(".posturl").val();
-			$('#<?php echo get_option('flcformid');?>').prepend('<div class="fb-comments" data-href="'+urldopost+'" data-width="580" style="width: 100%; margin:auto; text-align:center; padding:10px;" data-num-posts="20"></div>');
+			$('#<?php echo get_option('flcformid');?>').prepend('<div class="fb-comments" data-href="'+urldopost+'" data-width="<?php echo get_option('flcwidth');?>" style="width: 100%; margin:auto; text-align:center; padding:10px;" data-num-posts="20" data-colorscheme="<?php echo get_option('flcstyle');?>"></div>');
 	<?php
 			}
 		} ?>		
@@ -199,7 +218,6 @@ if($_POST){
 			margin:-10%;
 		}
 		#palcom{
-			background:#fff;
 			position:fixed;
 			display:none;
 			left:50%;
@@ -222,7 +240,7 @@ if($_POST){
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
 	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo get_option('flcappid');?>";
+	  js.src = "//connect.facebook.net/<?php echo get_option('flclang');?>/all.js#xfbml=1&appId=<?php echo get_option('flcappid');?>";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
 	
@@ -233,6 +251,8 @@ if($_POST){
 }
 else{
 	
+	if($_REQUEST['flcstyle']=='dark'){ echo '<body bgcolor="#000000">'; } else { echo '<body  bgcolor="#FFFFFF">';}
+	
 	$urlc = $_REQUEST['url'];
 	if($urlc == '') echo 'Plugin cannot get the url of your post. make sure if your theme have the post loop structure configured correctly';
 	else{
@@ -242,13 +262,14 @@ else{
 	  var js, fjs = d.getElementsByTagName(s)[0];
 	  if (d.getElementById(id)) return;
 	  js = d.createElement(s); js.id = id;
-	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=<?php echo $_REQUEST['flcappid'];?>";
+	  js.src = "//connect.facebook.net/<?php echo $_REQUEST['flclang'];?>/all.js#xfbml=1&appId=<?php echo $_REQUEST['flcappid'];?>";
 	  fjs.parentNode.insertBefore(js, fjs);
 	}(document, 'script', 'facebook-jssdk'));</script>
-	<div class="fb-comments" data-href="<?=$urlc?>" data-width="580" data-num-posts="20"></div>
-	
+	<div class="fb-comments" data-href="<?=$urlc?>" data-width="570" data-num-posts="20" data-colorscheme="<?php echo $_REQUEST['flcstyle'];?>" ></div>
+	</body>
 <?php
 	}
 } 
+
 
 ?>
