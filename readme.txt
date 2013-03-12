@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: comments, facebook, lightbox, facebook comments, fb comments, comments lightbox, comments facebook
 Requires at least: 2.5.1
 Tested up to: 3.5
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -49,6 +49,9 @@ Add styles options
 Add width option for comments
 Add language suport
 
+= 1.1.1 =
+Correcting tags errors
+
 
 == Changelog ==
 
@@ -65,3 +68,6 @@ Post url parameter in single post comments fixed
 Add styles options
 Add width option for comments
 Add language suport
+
+= 1.1.1 =
+Correcting tags errors
